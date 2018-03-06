@@ -17,6 +17,9 @@ let cache = require('gulp-cache');
 
 let del = require('del');
 
+let data = require('gulp-data');
+let nunjucksRender = require('gulp-nunjucks-render');
+
 gulp.task('images', function () {
     return gulp.src('./app/img/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
@@ -55,6 +58,13 @@ gulp.task('css', ['css:compile', 'css:minify']);
 // USER REF
 gulp.task('useref', function () {
     return gulp.src('app/*.html')
+         // nunjucks
+        .pipe(data(function() {
+            return require('./app/data.json')
+        }))
+        .pipe(nunjucksRender({
+            path: ['./app/templates']
+        }))
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
         // Minifies only if it's a CSS file
@@ -70,6 +80,6 @@ gulp.task('vendor', function () {
 // CLEAN
 gulp.task('clean:dist', function() {
     return del.sync('dist');
-})
+});
 
 gulp.task('build', ['clean:dist', 'useref', 'images', 'vendor']);
