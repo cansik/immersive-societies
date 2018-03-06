@@ -20,6 +20,11 @@ let del = require('del');
 let data = require('gulp-data');
 let nunjucksRender = require('gulp-nunjucks-render');
 
+let ftp = require('vinyl-ftp');
+let gutil = require('gulp-util');
+let minimist = require('minimist');
+let args = minimist(process.argv.slice(2));
+
 gulp.task('images', function () {
     return gulp.src('./app/img/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
@@ -88,4 +93,18 @@ gulp.task('watch', function () {
     watch('./app/*', function () {
         gulp.start('build')
     })
+});
+
+gulp.task('deploy', function() {
+    let remotePath = '/immersive-societies/';
+    let conn = ftp.create({
+        host: 'easyguet.ch',
+        user: args.user,
+        password: args.password,
+        log: gutil.log
+    });
+    conn.rmdir(remotePath, function () {
+        gulp.src(['./dist/**/*'])
+            .pipe(conn.dest(remotePath));
+    });
 });
