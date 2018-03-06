@@ -9,6 +9,7 @@ The filter blends everything out for you.
 But how do you start from a void, because you do not like anything? You derive it from your parents, like your DNA. But it is your filter setting DNA, stored in a large computer system which controls every filter.
 
 ### Company
+Place: Schlieren Biotec Silicon Valley
 
 #### Name
 

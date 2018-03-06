@@ -1,6 +1,17 @@
 class ImmersiveSocieties {
     init() {
-        console.log('hello world');
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "https://pannellum.org/images/alma.jpg"
+        });
+    }
+
+    setupPanorama()
+    {
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "https://pannellum.org/images/alma.jpg"
+        });
     }
 }
 
