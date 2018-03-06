@@ -1,8 +1,8 @@
-class Kurve {
+class ImmersiveSocieties {
     init() {
         console.log('hello world');
     }
 }
 
-let kurve = new Kurve();
-document.addEventListener('DOMContentLoaded', kurve.init);
+let immersiveSocieties = new ImmersiveSocieties();
+document.addEventListener('DOMContentLoaded', immersiveSocieties.init);
