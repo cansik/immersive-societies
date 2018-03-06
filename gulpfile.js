@@ -83,3 +83,9 @@ gulp.task('clean:dist', function() {
 });
 
 gulp.task('build', ['clean:dist', 'useref', 'images', 'vendor']);
+
+gulp.task('watch', function () {
+    watch('./app/*', function () {
+        gulp.start('build')
+    })
+});

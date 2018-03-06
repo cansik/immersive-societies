@@ -1,4 +1,4 @@
-# Immersive Societies
+# Immersive Societies [![Build Status](https://travis-ci.org/cansik/immersive-societies.svg?branch=master)](https://travis-ci.org/cansik/immersive-societies)
 A world which is filtered by your likes &amp; subscriptions.
 
 ## Description

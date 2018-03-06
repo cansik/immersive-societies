@@ -1,5 +1,13 @@
 {
-  "text": {
-    "companyName": "Hello World"
-  }
+  "company": {
+    "name": "Blocking I/O Inc.",
+    "description": "fgjsdkgjsdkgjsk"
+  },
+
+  "product": {
+    "name": "Netfilter",
+    "description": "fgjsdkgjsdkgjsk"
+  },
+
+  "year": 2056
 }

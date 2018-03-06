@@ -1,0 +1,18 @@
+notifications:
+  email: false
+language: node_js
+node_js:
+  - "node"
+
+# command to build
+install:
+
+# command to run tests
+before_script:
+  - npm install -g gulp-cli
+  - npm install
+
+script:
+  - gulp build
+
+after_success:
