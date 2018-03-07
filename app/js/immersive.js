@@ -48,6 +48,11 @@ function immersive() {
 
             audioPlayed = !audioPlayed;
         });
+
+        viewer.on("load", function (e) {
+            // start audio
+            Tone.Transport.start();
+        });
     }
 }
 
