@@ -16,3 +16,12 @@ Place: Schlieren Biotec Silicon Valley
 #### Vision
 
 #### Product
+
+## Tools
+Panorama
+https://pannellum.org/
+
+Audio
+https://freesound.org/people/inchadney/sounds/173154/
+https://freesound.org/people/VincePest11/sounds/326016/
+https://freesound.org/people/Baumstumpf/sounds/395941/
