@@ -43,6 +43,7 @@ function immersive() {
         });
 
         document.getElementById('test').addEventListener('click', function(e) {
+            /*
             Jimp.read("img/alma-bw.jpg").then(function (lenna) {
                 lenna.resize(256, 256)            // resize
                     .quality(60)                 // set JPEG quality
@@ -55,6 +56,7 @@ function immersive() {
             }).catch(function (err) {
                 console.error(err);
             });
+            */
 
             let renderer = viewer.getRenderer();
             let config = viewer.getConfig();
