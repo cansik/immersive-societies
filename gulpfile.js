@@ -82,12 +82,18 @@ gulp.task('vendor', function () {
     return gulp.src(['./app/vendor/**/*']).pipe(gulp.dest('./dist/vendor'));
 });
 
+// AUDIO
+gulp.task('audio', function () {
+    return gulp.src(['./app/audio/**/*']).pipe(gulp.dest('./dist/audio'));
+});
+
+
 // CLEAN
 gulp.task('clean:dist', function() {
     return del.sync('dist');
 });
 
-gulp.task('build', ['clean:dist', 'useref', 'images', 'vendor']);
+gulp.task('build', ['clean:dist', 'useref', 'images', 'vendor', 'audio']);
 
 gulp.task('watch', function () {
     watch('./app/*', function () {

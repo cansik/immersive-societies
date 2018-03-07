@@ -190,7 +190,7 @@ a:focus, a:hover {
 
 .example-section {
     color: white;
-    background: black url("../img/downloads-bg.jpg") no-repeat scroll center center;
+    background: black url("../img/bg.jpg") no-repeat scroll center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -287,6 +287,10 @@ img::-moz-selection {
     background: transparent;
 }
 
+/* responsive images */
+img {
+    max-width: 100%;
+}
 
 #panorama {
     position: relative;
