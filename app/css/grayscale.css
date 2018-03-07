@@ -323,14 +323,17 @@ img {
 .ctrl {
     padding: 8px 5px;
     width: 70px;
+    font-size: 20px;
     text-align: center;
-    background: rgba(200, 200, 200, 0.8);
+    color: rgb(36.0, 84.0, 150.0);
+    background: rgba(150, 150, 150, 0.6);
     display: inline-block;
     cursor: pointer;
 }
 
 .ctrl:hover {
-    background: rgba(200, 200, 200, 1);
+    color: rgb(65.0, 190.0, 183.0);
+    background: rgba(200, 200, 200, 0.8);
 }
 
 .feature {

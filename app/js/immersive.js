@@ -2,9 +2,9 @@ function immersive() {
     let audioPlayed = false;
 
     // audio
-    const traffic = createTrack("audio/traffic.mp3");
-    const humans = createTrack("audio/humans.mp3");
-    const nature = createTrack("audio/background.mp3");
+    const traffic = createTrack("audio/traffic.mp3", 0, 0);
+    const humans = createTrack("audio/humans.mp3", -10, 0.5);
+    const nature = createTrack("audio/background.mp3", -25, 1);
 
     const baseImage = Jimp.read("img/pano/street_base.jpg");
     const trafficImage = Jimp.read("img/pano/street_traffic.png");
@@ -14,15 +14,17 @@ function immersive() {
     initAudio();
 
     function initAudio() {
-        traffic.volume = 6;
-        humans.volume = -20;
-        nature.volume = -55;
+        /*
+        traffic.volume.value = 0;
+        humans.volume.value = -10;
+        nature.volume.value = -30;
+        */
     }
 
-    function createTrack(fileName) {
-        const player = new Tone.Player(fileName).sync().start(0);
+    function createTrack(fileName, volume, offset) {
+        const player = new Tone.Player(fileName).sync().start(offset);
         player.loop = true;
-        const vol = new Tone.Volume(-12);
+        const vol = new Tone.Volume(volume);
         player.chain(vol, Tone.Master);
         return vol;
     }
@@ -75,7 +77,8 @@ function immersive() {
         let viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "showControls": false,
-            "panorama": "img/pano/street.png"
+            "panorama": "img/pano/street.png",
+            "preview": "img/pano/street_preview.jpg"
         });
 
         document.getElementById('fullscreen').addEventListener('click', function(e) {
@@ -96,9 +99,11 @@ function immersive() {
             nature.mute = !nature.mute;
         });
 
+        /*
         document.getElementById('test').addEventListener('click', function(e) {
             setFilteredImage(viewer);
         });
+        */
 
         document.getElementById('mute').addEventListener('click', function(e) {
             if(audioPlayed)
