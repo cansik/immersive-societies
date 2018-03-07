@@ -20,9 +20,13 @@ h5,
 h6 {
     font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
-    margin-bottom: 100px;
+    margin-bottom: 35px;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+h2 {
+    margin-bottom: 100px;
 }
 
 p {
