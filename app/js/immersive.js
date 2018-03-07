@@ -43,6 +43,19 @@ function immersive() {
         });
 
         document.getElementById('test').addEventListener('click', function(e) {
+            Jimp.read("img/alma-bw.jpg").then(function (lenna) {
+                lenna.resize(256, 256)            // resize
+                    .quality(60)                 // set JPEG quality
+                    .greyscale()                 // set greyscale
+                    .getBase64(Jimp.MIME_JPEG, function (err, src) {
+                        var img = document.createElement("img");
+                        img.setAttribute("src", src);
+                        document.body.appendChild(img);
+                    });
+            }).catch(function (err) {
+                console.error(err);
+            });
+
             let renderer = viewer.getRenderer();
             let config = viewer.getConfig();
 
