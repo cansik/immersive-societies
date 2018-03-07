@@ -1,9 +1,19 @@
 function immersive() {
-    initAudio();
+    let audioPlayed = false;
+
+    // audio
+    const traffic = createTrack("audio/traffic.mp3");
+    const humans = createTrack("audio/humans.mp3");
+    const nature = createTrack("audio/background.mp3");
+
     initPanorama();
 
-    function initAudio() {
-
+    function createTrack(fileName) {
+        const player = new Tone.Player(fileName).sync().start(0);
+        player.loop = true;
+        const panVol = new Tone.PanVol();
+        player.chain(panVol, Tone.Master);
+        return panVol;
     }
 
     function initPanorama()
@@ -19,15 +29,24 @@ function immersive() {
         });
 
         document.getElementById('filter-traffic').addEventListener('click', function(e) {
-            viewer.setPitch(viewer.getPitch() + 10);
+            traffic.mute = !traffic.mute;
         });
 
         document.getElementById('filter-humans').addEventListener('click', function(e) {
-            viewer.setPitch(viewer.getPitch() + 10);
+            humans.mute = !humans.mute;
         });
 
         document.getElementById('filter-nature').addEventListener('click', function(e) {
-            viewer.setPitch(viewer.getPitch() + 10);
+            nature.mute = !nature.mute;
+        });
+
+        document.getElementById('mute').addEventListener('click', function(e) {
+            if(audioPlayed)
+                Tone.Transport.stop();
+            else
+                Tone.Transport.start();
+
+            audioPlayed = !audioPlayed;
         });
     }
 }
