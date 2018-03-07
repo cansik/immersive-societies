@@ -20,7 +20,7 @@ h5,
 h6 {
     font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
-    margin: 0 0 35px;
+    margin-bottom: 100px;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -327,4 +327,17 @@ img {
 
 .ctrl:hover {
     background: rgba(200, 200, 200, 1);
+}
+
+.feature {
+    width: 400px;
+}
+
+.feature p, img {
+    margin-bottom: 30px;
+}
+
+.feature img {
+    height: 100px;
+    width: 100px;
 }
