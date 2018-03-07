@@ -314,10 +314,10 @@ img {
 #controls {
     position: absolute;
     bottom: 0;
-    z-index: 1000;
     text-align: center;
     width: 100%;
     padding-bottom: 3px;
+    z-index: 1000;
 }
 
 .ctrl {
