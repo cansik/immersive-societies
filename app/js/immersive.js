@@ -30,6 +30,8 @@ function immersive() {
 
         document.getElementById('filter-traffic').addEventListener('click', function(e) {
             traffic.mute = !traffic.mute;
+
+            viewer.loadScene('newSceneId', viewer.getPitch(), viewer.getYaw(), viewer.getHfov());
         });
 
         document.getElementById('filter-humans').addEventListener('click', function(e) {
@@ -38,6 +40,34 @@ function immersive() {
 
         document.getElementById('filter-nature').addEventListener('click', function(e) {
             nature.mute = !nature.mute;
+        });
+
+        document.getElementById('test').addEventListener('click', function(e) {
+            let renderer = viewer.getRenderer();
+            let config = viewer.getConfig();
+
+            // create image
+            let img = new Image();
+
+            img.onload = function(){
+                console.log("image loaded!");
+                let params = {};
+                if (config.horizonPitch !== undefined)
+                    params.horizonPitch = config.horizonPitch * Math.PI / 180;
+                if (config.horizonRoll !== undefined)
+                    params.horizonRoll = config.horizonRoll * Math.PI / 180;
+                if (config.backgroundColor !== undefined)
+                    params.backgroundColor = config.backgroundColor;
+
+                function renderInitCallback() {
+                    console.log("rendering image");
+                }
+
+                renderer.init(img, config.type, config.dynamic, config.haov * Math.PI / 180, config.vaov * Math.PI / 180, config.vOffset * Math.PI / 180, renderInitCallback, params);
+                renderer.resize();
+            };
+
+            img.src = "img/alma-bw.jpg";
         });
 
         document.getElementById('mute').addEventListener('click', function(e) {
