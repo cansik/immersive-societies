@@ -14,11 +14,6 @@ function immersive() {
     initAudio();
 
     function initAudio() {
-        /*
-        traffic.volume.value = 0;
-        humans.volume.value = -10;
-        nature.volume.value = -30;
-        */
     }
 
     function createTrack(fileName, volume, offset) {
